@@ -2,19 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css'
 import axios from 'axios';
 
-const useStyles = makeStyles({
-  table: {
-    width: '100%',
-  },
-  tableHead: {
-    backgroundColor: '#f5f5f5',
-  },
-  tableRow: {
-    '&:nth-child(even)': {
-      backgroundColor: '#fbfbfb',
-    },
-  },
-});
+
 
 interface Train {
   id: number;
@@ -49,7 +37,9 @@ const TrainList: React.FC = () => {
       });
   }, []);
 
-  return (<>
+
+  return (
+  <>
     <table className="table">
   <thead>
     <tr>
@@ -66,18 +56,16 @@ const TrainList: React.FC = () => {
   <tbody>
     <tr>
       {trains.map((train) => (
-        <><td>{train.name}</td><td>{train.departureTime}</td><td>{train.arrivalTime}</td><td>{train.seatAvailability.sleeper}</td><td>{train.seatAvailability.ac}</td><td>{train.prices.sleeper}</td><td>{train.prices.ac}</td></>
-}
+        <><td>{train.name}</td><td>{train.departureTime}</td><td>{train.arrivalTime}</td><td>{train.seatAvailability.sleeper}</td><td>{train.seatAvailability.ac}</td><td>{train.prices.sleeper}</td><td>{train.prices.ac}</td></>)
+      )}
       
     </tr>
     
   </tbody>
+  </table>
   </>
-  );
-};
+  )}
+
+
 
 export default TrainList;
-function makeStyles(arg0: { table: { width: string; }; tableHead: { backgroundColor: string; }; tableRow: { '&:nth-child(even)': { backgroundColor: string; }; }; }) {
-    throw new Error('Function not implemented.');
-}
-
